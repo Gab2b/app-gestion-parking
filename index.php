@@ -3,8 +3,8 @@ session_start();
 require __DIR__ . '/vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
-//require "Includes/database.php";
-//require "Includes/functions.php";
+require "backend/_partials/database.php";
+require "backend/_partials/helpers.php";
 
 if (isset($_GET['disconnect']) && $_GET['disconnect'] == 'true') {
     $_SESSION = array();
@@ -17,8 +17,8 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
     strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
     if (isset($_GET['component'])) {
         $componentName = cleanString($_GET['component']);
-        if (file_exists("Controller/$componentName.php")) {
-            require "Controller/$componentName.php";
+        if (file_exists("backend/Controller/$componentName.php")) {
+            require "backend/Controller/$componentName.php";
         }
     }
     exit();
@@ -31,36 +31,40 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>App Gestion Parking</title>
-<!--        <link rel="stylesheet" href="assets/CSS/style.css">-->
+        <link rel="stylesheet" href="frontend/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
 
-<div class="container">
-    <?php
-    if (isset($_SESSION['auth'])) {
-//        require "_partials/navbar.php";
-        if (isset($_GET['component'])) {
-            $componentName = cleanString($_GET['component']);
+    <body class="<?= isset($_SESSION['auth']) ? 'with-navbar' : 'login-page' ?>">
+        <div class="container">
+            <?php
+            require "backend/_partials/navbar.php";
+            if (isset($_SESSION['auth'])) {
+                if (isset($_GET['component'])) {
+                    $componentName = cleanString($_GET['component']);
 
-            $canAccess = false;
+                    $canAccess = false;
 
-//            if ($_SESSION['admin']) {
-//                $canAccess = true;
-//            } else if ($componentName === "achat") {
-//                $canAccess = true;
-//            }
 
-            if ($canAccess && file_exists("Controller/$componentName.php")) {
-                require "Controller/$componentName.php";
+                    //            if ($_SESSION['admin']) {
+        //                $canAccess = true;
+        //            } else if ($componentName === "ADMIN VIEWS ONLY") {
+        //                $canAccess = true;
+        //            }
+
+                    if ($canAccess && file_exists("Controller/$componentName.php")) {
+                        require "Controller/$componentName.php";
+                    } else {
+                        require "backend/Controller/layout.php";
+                    }
+                } else {
+                    require "backend/Controller/layout.php";
+                }
             } else {
-                require "Controller/achat.php";
+                require "backend/Controller/layout.php";
             }
-        } else {
-            require "Controller/achat.php";
-        }
-    } else {
-        require 'Controller/map.php';
-    }
 
-    ?>
-</div>
-</body>
+            ?>
+        </div>
+    </body>
+</html>
