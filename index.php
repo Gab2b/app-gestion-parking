@@ -7,7 +7,6 @@ require "backend/_partials/database.php";
 require "backend/_partials/helpers.php";
 
 if (isset($_GET['disconnect']) && $_GET['disconnect'] == 'true') {
-    $_SESSION = array();
     session_destroy();
     header("Location: index.php");
     exit();
@@ -40,6 +39,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
             <?php
             require "backend/_partials/navbar.php";
             if (isset($_SESSION['auth'])) {
+                var_dump($_SESSION);
                 if (isset($_GET['component'])) {
                     $componentName = cleanString($_GET['component']);
 
@@ -61,7 +61,12 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
                     require "backend/Controller/layout.php";
                 }
             } else {
-                require "backend/Controller/layout.php";
+                if (isset($_GET['component']) && cleanString($_GET['component'])==="login") {
+                    require "backend/Controller/login.php";
+                }
+                else {
+                    require "backend/Controller/layout.php";
+                }
             }
 
             ?>
