@@ -10,7 +10,7 @@ if (!empty($_SERVER['CONTENT_TYPE']) && (($_SERVER['CONTENT_TYPE'] === 'applicat
 
     $emailAddress = !empty($_POST['email']) ? cleanString($_POST['email']) : null;
     $passcode = !empty($_POST['passcode']) ? cleanString($_POST['passcode']) : null;
-    
+
     if (!empty($emailAddress) && !empty($passcode))
     {
         $user = getUser($pdo, $emailAddress);
@@ -22,8 +22,8 @@ if (!empty($_SERVER['CONTENT_TYPE']) && (($_SERVER['CONTENT_TYPE'] === 'applicat
             $_SESSION['auth'] = true;
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_username'] = $user['mail'];
-            header("Content-Type: application/json");
-            echo json_encode(['authentication' => true]);
+//            header("Content-Type: application/json");
+//            echo json_encode(['authentication' => true]);
             exit();
         }
         else
