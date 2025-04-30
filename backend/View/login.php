@@ -28,7 +28,8 @@
             }
 
             const loginResult = await login(formLogin.elements['emailAddress'].value, formLogin.elements['passcode'].value);
-
+            console.log(loginResult)
+            
             if (loginResult.hasOwnProperty('authentication')) {
                 document.location.href = 'index.php';
             } else if (loginResult.hasOwnProperty('errors')) {

@@ -38,6 +38,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
         <div class="container">
             <?php
             require "backend/_partials/navbar.php";
+            require "backend/_partials/errors.php";
             if (isset($_SESSION['auth'])) {
                 var_dump($_SESSION);
                 if (isset($_GET['component'])) {
