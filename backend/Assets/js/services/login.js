@@ -3,13 +3,14 @@ export const login = async (emailAddress, password) => {
     const response = await fetch('index.php?component=login', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-Requested-With': 'XMLHttpRequest'
         },
         body: new URLSearchParams({
             email: emailAddress,
             passcode: password
         })
     })
-    const text = await response.text();
-    console.log(text);
+    const response = await response.json();
+    return response;
 }

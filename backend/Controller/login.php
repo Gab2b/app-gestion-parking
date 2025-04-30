@@ -22,8 +22,8 @@ if (!empty($_SERVER['CONTENT_TYPE']) && (($_SERVER['CONTENT_TYPE'] === 'applicat
             $_SESSION['auth'] = true;
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_username'] = $user['mail'];
-//            header("Content-Type: application/json");
-//            echo json_encode(['authentication' => true]);
+            header("Content-Type: application/json");
+            echo json_encode(['authentication' => true]);
             exit();
         }
         else

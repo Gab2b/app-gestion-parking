@@ -38,19 +38,19 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
         <div class="container">
             <?php
             require "backend/_partials/navbar.php";
+            require "backend/_partials/errors.php";
             if (isset($_SESSION['auth'])) {
                 var_dump($_SESSION);
                 if (isset($_GET['component'])) {
                     $componentName = cleanString($_GET['component']);
 
                     $canAccess = false;
-
-
-                    //            if ($_SESSION['admin']) {
-        //                $canAccess = true;
-        //            } else if ($componentName === "ADMIN VIEWS ONLY") {
-        //                $canAccess = true;
-        //            }
+//
+//                    if ($_SESSION['admin']) {
+//                        $canAccess = true;
+//                    } else if ($componentName === "ADMIN VIEWS ONLY") {
+//                        $canAccess = true;
+//                    }
 
                     if ($canAccess && file_exists("Controller/$componentName.php")) {
                         require "Controller/$componentName.php";
