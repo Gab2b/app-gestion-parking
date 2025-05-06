@@ -19,10 +19,13 @@ if (!empty($_SERVER['CONTENT_TYPE']) && (($_SERVER['CONTENT_TYPE'] === 'applicat
 
         if ($isMatchPasscode)
         {
+            $userStatus = getAdminStatus($pdo, $user['id']) ? 1 : 0;
             $_SESSION['auth'] = true;
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_username'] = $user['mail'];
-            header("Content-Type: application/json");
+            $_SESSION['status'] = $userStatus;
+            $errors[] = 'L\'identification a réussi';
+            header('Content-Type: application/json');
             echo json_encode(['authentication' => true]);
             exit();
         }

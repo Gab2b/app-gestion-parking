@@ -44,19 +44,29 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
                 if (isset($_GET['component'])) {
                     $componentName = cleanString($_GET['component']);
 
-                    $canAccess = false;
-//
-//                    if ($_SESSION['admin']) {
-//                        $canAccess = true;
-//                    } else if ($componentName === "ADMIN VIEWS ONLY") {
-//                        $canAccess = true;
-//                    }
+                    $adminAccess = false;
+                    $userAccess = false;
 
-                    if ($canAccess && file_exists("Controller/$componentName.php")) {
-                        require "Controller/$componentName.php";
-                    } else {
-                        require "backend/Controller/layout.php";
+                    if (isset($_SESSION['auth']) && $_SESSION['status'] === 1) {
+                        $adminAccess = true;
+                    } else if ($componentName === "ADMIN VIEWS ONLY") {
+                        $adminAccess = true;
                     }
+
+                    if (isset($_GET) && $_GET['component'] === "login") {
+                        $errors[] = 'Vous êtes déjà connecté !';
+                        header("Location: index.php?component=layout");
+
+                    }
+
+                    else {
+                        if ($userAccess && file_exists("Controller/$componentName.php")) {
+                            require "Controller/$componentName.php";
+                        } else {
+                            require "backend/Controller/layout.php";
+                        }
+                    }
+
                 } else {
                     require "backend/Controller/layout.php";
                 }
