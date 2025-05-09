@@ -40,12 +40,15 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
             require "backend/_partials/navbar.php";
             require "backend/_partials/errors.php";
             if (isset($_SESSION['auth'])) {
-                var_dump($_SESSION);
                 if (isset($_GET['component'])) {
                     $componentName = cleanString($_GET['component']);
 
                     $adminAccess = false;
                     $userAccess = false;
+                    if ($_SESSION['auth'] === true) {
+                        $userAccess = true;
+                    };
+
 
                     if (isset($_SESSION['auth']) && $_SESSION['status'] === 1) {
                         $adminAccess = true;
@@ -57,11 +60,9 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
                         $errors[] = 'Vous êtes déjà connecté !';
                         header("Location: index.php?component=layout");
 
-                    }
-
-                    else {
-                        if ($userAccess && file_exists("Controller/$componentName.php")) {
-                            require "Controller/$componentName.php";
+                    } else {
+                        if ($userAccess && file_exists("backend/Controller/$componentName.php")) {
+                            require "backend/Controller/$componentName.php";
                         } else {
                             require "backend/Controller/layout.php";
                         }
