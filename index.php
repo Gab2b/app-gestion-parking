@@ -44,8 +44,8 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
         <?php require "backend/_partials/navbar.php";?>
         <div class="container">
             <?php
+
             $errors = [];
-            require "backend/_partials/errors.php";
 
             if (isset($_SESSION['auth'])) {
                 if (isset($_GET['component'])) {
@@ -87,6 +87,8 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
                     require "backend/Controller/layout.php";
                 }
             }
+
+            require "backend/_partials/errors.php";
 
             ?>
         </div>

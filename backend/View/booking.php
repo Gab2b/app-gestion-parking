@@ -1,25 +1,32 @@
-<body>
 <form class="reservation-form" method="post" action="traitement.php">
     <h2>Réserver une place</h2>
 
     <div>
-        <label for="vehicle">Immatriculation du véhicule</label>
-        <input type="text" id="vehicle" name="vehicle" placeholder="AB-123-CD" required>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Choisissez le véhicule
+            </button>
+            <ul class="dropdown-menu">
+                <?php foreach ($vehicles as $vehicle) : ?>
+                    <li><a href="#" class="dropdown-item"><?php echo $vehicle["license_plate"]?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
     </div>
 
     <div>
         <label for="date">Date</label>
-        <input type="date" id="date" name="date" required>
+        <input type="date" id="date" name="date" class="selector" required>
     </div>
 
     <div>
         <label for="start">Heure de début</label>
-        <input type="time" id="start" name="start" required>
+        <input type="time" id="start" name="start" class="selector" required>
     </div>
 
     <div>
         <label for="end">Heure de fin</label>
-        <input type="time" id="end" name="end" required>
+        <input type="time" id="end" name="end" class="selector" required>
     </div>
 
     <div class="tarif" id="tarif">Tarif : 0 €</div>
@@ -27,8 +34,26 @@
     <button type="submit">Réserver</button>
 </form>
 
+<script src="frontend/assets/bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    function calculerTarif() {
+    document.addEventListener('DOMContentLoaded', async () => {
+        document.querySelectorAll('.selector').forEach(input => {
+            input.addEventListener('change', () => {
+                console.log(input.value)
+                let filledFields = 0
+                document.querySelectorAll('.selector').forEach(input => {
+                    if (input.value) {
+                        filledFields += 1
+                    }
+                })
+                if (filledFields === 3) {
+                    console.log('Tarif')
+                }
+            })
+        })
+    })
+
+    function calcucomponentslerTarif() {
         const startInput = document.getElementById("start").value;
         const endInput = document.getElementById("end").value;
         const tarifDisplay = document.getElementById("tarif");

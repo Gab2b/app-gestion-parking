@@ -28,10 +28,10 @@
 
 <script src="frontend/assets/bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js"></script>
 <script src="frontend/assets/sweetalert2-11.22.0/dist/sweetalert2.all.min.js"></script>
-<script src="backend/Assets/js/services/vehicle.js" type="module"></script>
+<script src="backend/Assets/js/components/vehicle.js" type="module"></script>
 <script type="module">
-    import { displayUserVehicles } from "./backend/Assets/js/services/vehicle.js";
-    import { addVehicle, updateVehicle, deleteVehicle, showUserVehicles } from "./backend/Assets/js/components/vehicle.js";
+    import { displayUserVehicles } from "./backend/Assets/js/components/vehicle.js";
+    import { addVehicle, updateVehicle, deleteVehicle, showUserVehicles } from "./backend/Assets/js/services/vehicle.js";
 
     document.addEventListener("DOMContentLoaded", async () => {
 
