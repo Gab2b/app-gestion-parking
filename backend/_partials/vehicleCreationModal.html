@@ -1,0 +1,69 @@
+<div class="modal" id="vehicleAdditionModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ajout d'un véhicule</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="vehicleAdditionForm" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="license_plate" class="form-label">Plaque d'immatriculation</label>
+                        <input type="text" name="license_plate" id="license_plate" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="brand" class="form-label">Marque</label>
+                        <input type="text" name="brand" id="brand" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="model" class="form-label">Modèle</label>
+                        <input type="text" name="model" id="model" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="color" class="form-label">Couleur</label>
+                        <input type="text" name="color" id="color" class="form-control" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button id="confirmVehicleAddition" type="button" class="btn btn-primary">Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="vehicleModificationModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modification d'un véhicule</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="vehicleModificationForm" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="license_plate" class="form-label">Plaque d'immatriculation</label>
+                        <input type="text" name="license_plate" id="retrieveLicense_plate" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="brand" class="form-label">Marque</label>
+                        <input type="text" name="brand" id="retrieveBrand" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="model" class="form-label">Modèle</label>
+                        <input type="text" name="model" id="retrieveModel" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="color" class="form-label">Couleur</label>
+                        <input type="text" name="color" id="retrieveColor" class="form-control" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button id="confirmVehicleModification" type="button" class="btn btn-primary">Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+</div>

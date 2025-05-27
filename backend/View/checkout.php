@@ -1,5 +1,4 @@
 <div class="container">
-    <?php var_dump($_SESSION);?>
     <form class="payment-form">
         <h2>Paiement</h2>
 

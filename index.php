@@ -3,6 +3,7 @@ session_start();
 require __DIR__ . '/vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
+$basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/') . '/';
 require "backend/_partials/database.php";
 require "backend/_partials/helpers.php";
 
@@ -31,14 +32,21 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>App Gestion Parking</title>
         <link rel="stylesheet" href="frontend/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="frontend/assets/bootstrap-5.3.6-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="frontend/assets/bootstrap-5.3.6-dist/css/bootstrap.min.css">
+        <link href="frontend/assets/fontawesome-free-6.7.2-web/css/fontawesome.css" rel="stylesheet" />
+        <link href="frontend/assets/fontawesome-free-6.7.2-web/css/solid.css" rel="stylesheet" />
+        <link rel="stylesheet" href="frontend/assets/sweetalert2-11.22.0/dist/sweetalert2.min.css">
+        <base href="<?php echo $basePath; ?>">
     </head>
 
     <body class="<?= isset($_SESSION['auth']) ? 'with-navbar' : 'login-page' ?>">
+        <?php require "backend/_partials/navbar.php";?>
         <div class="container">
             <?php
-            require "backend/_partials/navbar.php";
+            $errors = [];
             require "backend/_partials/errors.php";
+
             if (isset($_SESSION['auth'])) {
                 if (isset($_GET['component'])) {
                     $componentName = cleanString($_GET['component']);
