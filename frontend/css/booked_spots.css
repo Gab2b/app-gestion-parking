@@ -1,0 +1,258 @@
+
+:root {
+    --cyan: #00bcd4;
+    --dark-blue: #1e3a5f;
+    --light-cyan: #e0f7fa;
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --border-gray: #dee2e6;
+    --text-gray: #6c757d;
+    --danger: #dc3545;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    color: var(--dark-blue);
+    background-color: var(--light-gray);
+    margin: 0;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 188, 212, 0.1);
+    border-top: 4px solid var(--cyan);
+}
+
+h1 {
+    color: var(--dark-blue);
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 0 0 30px 0;
+    text-align: center;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--cyan);
+    border-radius: 2px;
+}
+
+h4 {
+    color: var(--dark-blue);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 40px 0 15px 0;
+}
+
+h5 {
+    margin: 0 0 30px 0;
+}
+
+h5 a {
+    color: var(--white);
+    background: var(--cyan);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+h5 a:hover {
+    background: var(--dark-blue);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background: var(--white);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.table thead {
+    background: var(--cyan);
+}
+
+.table thead th {
+    padding: 15px 12px;
+    color: var(--white);
+    font-weight: 600;
+    text-align: left;
+    font-size: 0.9rem;
+    border: none;
+}
+
+.table thead th a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.table thead th a:hover {
+    text-decoration: underline;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.table tbody tr:hover {
+    background-color: var(--light-cyan);
+}
+
+.table tbody td {
+    padding: 12px;
+    color: var(--dark-blue);
+    font-size: 0.9rem;
+    border: none;
+}
+
+.table tbody td:first-child {
+    font-weight: 600;
+    color: var(--cyan);
+}
+
+.table tbody td:nth-child(3) {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    background-color: rgba(0, 188, 212, 0.05);
+    border-radius: 3px;
+}
+
+.table tbody td:last-child {
+    text-align: center;
+}
+
+.table tbody td a[data-id] {
+    color: var(--danger);
+    font-size: 1.1rem;
+    padding: 6px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.table tbody td a[data-id]:hover {
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+@media (max-width: 992px) {
+    .container {
+        margin: 0 15px;
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 0 10px;
+        padding: 20px 12px;
+        border-radius: 6px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+
+    .table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table thead,
+    .table tbody,
+    .table tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 10px 6px;
+        font-size: 0.8rem;
+        min-width: 100px;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+        margin-top: 30px;
+    }
+
+    h5 a {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 0 5px;
+        padding: 15px 10px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 8px 4px;
+        font-size: 0.75rem;
+        min-width: 80px;
+    }
+
+    h5 a {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+.table thead th a:focus,
+h5 a:focus,
+.table tbody td a[data-id]:focus {
+    outline: 2px solid var(--cyan);
+    outline-offset: 1px;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgba(0, 188, 212, 0.02);
+}
+
+.table tbody tr:nth-child(even):hover {
+    background-color: var(--light-cyan);
+}

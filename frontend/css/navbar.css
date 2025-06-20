@@ -1,0 +1,254 @@
+/* ===== NAVBAR PERSONNALISÉ MAGNAUD ===== */
+
+/* Variables CSS pour faciliter la maintenance */
+:root {
+    --primary-cyan: #00bcd4;
+    --primary-dark: #1e3a5f;
+    --accent-blue: #08afe3;
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --dark-gray: #333333;
+    --shadow: 0 2px 8px rgba(30, 58, 95, 0.15);
+    --transition: all 0.2s ease;
+}
+
+/* Reset et base */
+.navbar {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--primary-cyan) 100%) !important;
+    box-shadow: var(--shadow);
+    padding: 0.75rem 2rem;
+    min-height: 80px;
+    border: none;
+}
+
+/* Logo styling */
+.navbar img {
+    width: 160px;
+    height: 80px;
+    border-radius: 40px;
+    object-fit: cover;
+    transition: var(--transition);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar img:hover {
+    transform: scale(1.02);
+    border-color: var(--white);
+}
+
+/* Navigation principale */
+.right-icons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.icon-alignment {
+    display: flex !important;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+}
+
+/* Liens de navigation */
+.nav-link {
+    color: var(--white) !important;
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--white) !important;
+    transform: translateY(-1px);
+}
+
+.nav-link:active {
+    transform: translateY(0);
+}
+
+/* Style pour les liens personnalisés */
+.navbar a[href*="login"],
+.navbar a[href*="signup"],
+.navbar a[href*="admin_dashboard"],
+.navbar a[href*="disconnect"] {
+    color: var(--white) !important;
+    text-decoration: none !important;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+.navbar a[href*="login"]:hover,
+.navbar a[href*="signup"]:hover,
+.navbar a[href*="admin_dashboard"]:hover,
+.navbar a[href*="disconnect"]:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+/* Paragraphes dans la navbar */
+.navbar p {
+    margin: 0 !important;
+    color: var(--white) !important;
+    font-weight: 500;
+}
+
+/* Icône utilisateur */
+.fa-user {
+    color: var(--white) !important;
+    margin-left: 3rem !important;
+    margin-right: 0.5rem;
+    opacity: 0.9;
+}
+
+/* Lien profil utilisateur */
+.navbar a[href*="profile"] {
+    margin-left: -1rem;
+}
+
+.navbar a[href*="profile"] p {
+    font-size: 1rem !important;
+    font-weight: 600;
+}
+
+/* Boutons spéciaux */
+.navbar a[href*="signup"] {
+    background-color: var(--primary-dark);
+    border-radius: 8px;
+    font-weight: 600 !important;
+}
+
+.navbar a[href*="signup"]:hover {
+    background-color: rgba(30, 58, 95, 0.8);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .icon-alignment {
+        gap: 1.5rem;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .fa-user {
+        margin-left: 2rem !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+        flex-direction: column;
+        align-items: center;
+        min-height: auto;
+    }
+
+    .navbar img {
+        width: 120px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+
+    .right-icons {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .icon-alignment {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin: 0;
+    }
+
+    .fa-user {
+        margin-left: 1rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .navbar img {
+        width: 100px;
+        height: 50px;
+    }
+
+    .icon-alignment {
+        gap: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .navbar p {
+        font-size: 0.9rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .icon-alignment {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .fa-user {
+        margin-left: 0 !important;
+        margin-bottom: 0.5rem;
+    }
+
+    .navbar a[href*="profile"] {
+        margin-left: 0;
+    }
+}
+
+/* Animation subtile au chargement */
+.navbar {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Focus accessibility */
+.nav-link:focus,
+.navbar a:focus {
+    outline: 2px solid var(--white);
+    outline-offset: 2px;
+}
+
+/* Active state pour la page courante */
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+}
+
+/* Amélioration de la lisibilité */
+.navbar * {
+    text-shadow: none;
+}

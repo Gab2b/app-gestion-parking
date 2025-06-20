@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="frontend/css/vehicles.css">
+
 <br>
 <div style="display: flex; justify-content: space-between">
     <h1>

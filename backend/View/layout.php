@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="frontend/css/layout.css">
+
 <div class="container">
     <div>
         <h1>Bienvenue au Parking Maurras</h1>

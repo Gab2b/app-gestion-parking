@@ -31,7 +31,6 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>App Gestion Parking</title>
-        <link rel="stylesheet" href="frontend/css/style.css">
         <link rel="stylesheet" href="frontend/assets/bootstrap-5.3.6-dist/css/bootstrap.css">
         <link rel="stylesheet" href="frontend/assets/bootstrap-5.3.6-dist/css/bootstrap.min.css">
         <link href="frontend/assets/fontawesome-free-6.7.2-web/css/fontawesome.css" rel="stylesheet" />
@@ -47,30 +46,38 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
 
             $errors = [];
 
+            $publicViews = array("login", "signup");
+            $adminViews = array("admin_dashboard", "price_management", "spots_management");
+
             if (isset($_SESSION['auth'])) {
                 if (isset($_GET['component'])) {
                     $componentName = cleanString($_GET['component']);
 
                     $adminAccess = false;
                     $userAccess = false;
+
                     if ($_SESSION['auth'] === true) {
                         $userAccess = true;
+                        if (isset($_SESSION['status']) && $_SESSION['status'] === 1) {
+                            $adminAccess = true;
+                        }
                     };
 
-
-                    if (isset($_SESSION['auth']) && $_SESSION['status'] === 1) {
-                        $adminAccess = true;
-                    } else if ($componentName === "ADMIN VIEWS ONLY") {
-                        $adminAccess = true;
-                    }
-
-                    if (isset($_GET) && $_GET['component'] === "login") {
+                    if (isset($_GET) && in_array(cleanString($_GET['component']), $publicViews)) {
                         $errors[] = 'Vous êtes déjà connecté !';
-                        header("Location: index.php?component=layout");
+                        header("Location: dashboard");
 
                     } else {
                         if ($userAccess && file_exists("backend/Controller/$componentName.php")) {
-                            require "backend/Controller/$componentName.php";
+                            if (in_array($componentName, $adminViews)) {
+                                if ($adminAccess) {
+                                    require "backend/Controller/$componentName.php";
+                                } else {
+                                    require "backend/Controller/dashboard.php";
+                                }
+                            } else {
+                                require "backend/Controller/$componentName.php";
+                            }
                         } else {
                             require "backend/Controller/layout.php";
                         }
@@ -80,8 +87,8 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
                     require "backend/Controller/layout.php";
                 }
             } else {
-                if (isset($_GET['component']) && cleanString($_GET['component'])==="login") {
-                    require "backend/Controller/login.php";
+                if (isset($_GET['component']) && in_array(cleanString($_GET['component']), $publicViews)) {
+                    require "backend/Controller/".cleanString($_GET['component']).".php";
                 }
                 else {
                     require "backend/Controller/layout.php";

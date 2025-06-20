@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="frontend/css/login.css"
+>
 <br>
 <form method="post" id="login-form">
     <div class="mb-3">
@@ -10,7 +12,9 @@
     </div>
     <button type="button" class="btn btn-primary" name="login_button" id="valid-login-btn">Valider</button>
 </form>
-<br>
+<br><br>
+<p style="text-decoration: none;">Vous n'avez pas encore de compte ?</p>
+<a href="signup">Cliquez ici pour créer un compte</a>
 
 <script src="./backend/Assets/js/services/login.js" type="module"></script>
 <script type="module">

@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f8fafc;
+    color: #1e3a5f;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+h1 {
+    color: #1e3a5f;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #00bcd4;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(30, 58, 95, 0.1);
+    margin-top: 1rem;
+}
+
+.table thead {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6b 100%);
+}
+
+.table thead th {
+    padding: 1rem 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table thead th a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s ease;
+}
+
+.table thead th a:hover {
+    color: #00bcd4;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(0, 188, 212, 0.05);
+}
+
+.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.table tbody td {
+    padding: 0.875rem 0.75rem;
+    font-size: 0.9rem;
+    color: #334155;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.table tbody tr:nth-child(even):hover {
+    background-color: rgba(0, 188, 212, 0.08);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .table {
+        font-size: 0.8rem;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 0.5rem 0.4rem;
+        min-width: 100px;
+    }
+
+    .table thead th:nth-child(n+6),
+    .table tbody td:nth-child(n+6) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.25rem;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .table {
+        font-size: 0.75rem;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 0.4rem 0.3rem;
+        min-width: 80px;
+    }
+
+    .table thead th:nth-child(n+5),
+    .table tbody td:nth-child(n+5) {
+        display: none;
+    }
+}
+
+.table thead th a:focus {
+    outline: 2px solid #00bcd4;
+    outline-offset: 2px;
+}
+
+.table tbody:empty::after {
+    content: "Aucune réservation trouvée";
+    display: block;
+    text-align: center;
+    padding: 2rem;
+    color: #64748b;
+    font-style: italic;
+}
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .table {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+
+    .table thead {
+        background: #f0f0f0 !important;
+    }
+
+    .table thead th a {
+        color: #000 !important;
+    }
+}

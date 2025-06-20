@@ -1,0 +1,393 @@
+
+:root {
+    --cyan: #00bcd4;
+    --dark-blue: #1e3a5f;
+    --light-cyan: #e0f7fa;
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --border-gray: #dee2e6;
+    --text-gray: #6c757d;
+    --danger: #dc3545;
+    --success: #28a745;
+    --warning: #ffc107;
+    --orange: #fd7e14;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    color: var(--dark-blue);
+    background-color: var(--light-gray);
+    margin: 0;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 188, 212, 0.1);
+    border-top: 4px solid var(--cyan);
+}
+
+h1 {
+    color: var(--dark-blue);
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 0 0 30px 0;
+    text-align: center;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--orange);
+    border-radius: 2px;
+}
+
+h4 {
+    color: var(--dark-blue);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 40px 0 15px 0;
+}
+
+h5 {
+    margin: 0 0 30px 0;
+}
+
+h5 a {
+    color: var(--white);
+    background: var(--cyan);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+h5 a:hover {
+    background: var(--dark-blue);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background: var(--white);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.table thead {
+    background: linear-gradient(135deg, var(--cyan), var(--dark-blue));
+}
+
+.table thead th {
+    padding: 15px 10px;
+    color: var(--white);
+    font-weight: 600;
+    text-align: left;
+    font-size: 0.85rem;
+    border: none;
+}
+
+.table thead th a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.table thead th a:hover {
+    text-decoration: underline;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.table tbody tr:hover {
+    background-color: var(--light-cyan);
+}
+
+.table tbody td {
+    padding: 12px 10px;
+    color: var(--dark-blue);
+    font-size: 0.85rem;
+    border: none;
+    vertical-align: middle;
+}
+
+.table tbody td:first-child {
+    font-weight: 600;
+    color: var(--cyan);
+}
+
+.table tbody td:nth-child(4) {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    background-color: rgba(0, 188, 212, 0.05);
+    border-radius: 3px;
+}
+
+.gotPrice {
+    font-weight: 600;
+    color: var(--success);
+    font-size: 0.9rem;
+    background-color: rgba(40, 167, 69, 0.1);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.table tbody td:nth-last-child(2),
+.table tbody td:last-child {
+    text-align: center;
+    padding: 8px;
+}
+
+.editReservation,
+.deleteReservation {
+    color: var(--text-gray);
+    font-size: 1rem;
+    padding: 6px 8px;
+    margin: 0 2px;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.editReservation {
+    color: var(--cyan);
+}
+
+.editReservation:hover {
+    background-color: rgba(0, 188, 212, 0.1);
+}
+
+.deleteReservation {
+    color: var(--danger);
+}
+
+.deleteReservation:hover {
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+.payButton {
+    background: var(--success);
+    color: var(--white);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.payButton:hover {
+    background: #218838;
+}
+
+#oneTimePayment {
+    background: linear-gradient(135deg, var(--orange), #e55100);
+    color: var(--white);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 2px 8px rgba(253, 126, 20, 0.2);
+}
+
+#oneTimePayment:hover {
+    background: linear-gradient(135deg, #e55100, #bf360c);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(253, 126, 20, 0.3);
+}
+
+@media (max-width: 1200px) {
+    .table thead th,
+    .table tbody td {
+        padding: 10px 6px;
+        font-size: 0.8rem;
+    }
+
+    .payButton {
+        padding: 5px 8px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        margin: 0 15px;
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 8px 4px;
+        font-size: 0.75rem;
+    }
+
+    .editReservation,
+    .deleteReservation {
+        padding: 4px 6px;
+        font-size: 0.9rem;
+    }
+
+    .payButton {
+        padding: 4px 6px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 0 10px;
+        padding: 20px 12px;
+        border-radius: 6px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+
+    .table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table thead,
+    .table tbody,
+    .table tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        min-width: 800px;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 8px 6px;
+        font-size: 0.7rem;
+        min-width: 80px;
+    }
+
+    .table th:first-child,
+    .table td:first-child,
+    .table th:nth-child(4),
+    .table td:nth-child(4),
+    .table th:nth-child(9),
+    .table td:nth-child(9) {
+        min-width: 100px;
+    }
+
+    h4 {
+        font-size: 1.1rem;
+        margin-top: 30px;
+    }
+
+    h5 a {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    #oneTimePayment {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 0 5px;
+        padding: 15px 10px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 6px 4px;
+        font-size: 0.65rem;
+        min-width: 70px;
+    }
+
+    .editReservation,
+    .deleteReservation {
+        padding: 3px 4px;
+        font-size: 0.8rem;
+        margin: 0 1px;
+    }
+
+    .payButton {
+        padding: 3px 5px;
+        font-size: 0.65rem;
+    }
+
+    h5 a {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    #oneTimePayment {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+.table thead th a:focus,
+h5 a:focus,
+.editReservation:focus,
+.deleteReservation:focus,
+.payButton:focus,
+#oneTimePayment:focus {
+    outline: 2px solid var(--cyan);
+    outline-offset: 1px;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgba(0, 188, 212, 0.02);
+}
+
+.table tbody tr:nth-child(even):hover {
+    background-color: var(--light-cyan);
+}
+
+.table tbody td:nth-child(3) {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--dark-blue);
+}
+
+#oneTimePayment {
+    transition: all 0.2s ease;
+}
