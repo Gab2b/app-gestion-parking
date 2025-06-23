@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #1e3a5f;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+h1 {
+    color: #1e3a5f;
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #00bcd4;
+    margin: 0.5rem auto;
+    border-radius: 2px;
+}
+
+h3 {
+    color: #00bcd4;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.container > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.container > div > div {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(30, 58, 95, 0.1);
+    border: 1px solid rgba(0, 188, 212, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.container > div > div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.15);
+}
+
+.container > div > div > a {
+    display: block;
+    color: #1e3a5f;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #00bcd4;
+    transition: color 0.2s ease;
+}
+
+.container > div > div > a:hover {
+    color: #00bcd4;
+}
+
+.placeholderForFunction {
+    margin-top: 1rem;
+}
+
+.placeholderForFunction p {
+    background: #f8f9fa;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border-radius: 6px;
+    border-left: 3px solid #00bcd4;
+    font-size: 0.9rem;
+    color: #555;
+    word-break: break-word;
+}
+
+.placeholderForFunction:empty::after {
+    content: 'Chargement...';
+    color: #888;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem 0.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .container > div {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .container > div > div {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .container > div > div {
+        padding: 1rem;
+        border-radius: 8px;
+    }
+
+    .container > div > div > a {
+        font-size: 1rem;
+    }
+}
+
+.container > div > div > a:focus {
+    outline: 2px solid #00bcd4;
+    outline-offset: 2px;
+}
+
+.container > div > div {
+    will-change: transform;
+}
+
+.container > div > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #00bcd4, #1e3a5f);
+    border-radius: 12px 12px 0 0;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.container > div > div {
+    position: relative;
+}
+
+.container > div > div:hover::before {
+    opacity: 1;
+}
+
+.container > div > .cart {
+    grid-column: 2 / 3;
+}

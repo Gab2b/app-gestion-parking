@@ -1,0 +1,47 @@
+<form id="unpaidReservationForm">
+    <div class="mb-3">
+        <label for="reservationId" class="form-label">N° de Réservation</label>
+        <input type="text" class="form-control" id="reservationId" name="reservationId" disabled>
+    </div>
+
+    <div class="mb-3">
+        <label for="spotId" class="form-label">Place</label>
+        <select class="form-select" name="spotSelected" id="spotId">
+            <option selected disabled>Choisir une place</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+    <label for="vehicleId" class="form-label">Véhicule</label>
+    <select class="form-select" name="vehicleSelected"  id="vehicleId">
+        <option selected disabled>Choisir un véhicule</option>
+    </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="startDay" class="form-label">Jour de début</label>
+        <input type="text" class="form-control" id="startDay" disabled>
+    </div>
+
+    <div class="mb-3">
+        <label for="startHour" class="form-label">Heure de début</label>
+        <input type="text" class="form-control" id="startHour" disabled>
+    </div>
+
+    <div class="mb-3">
+        <label for="endDay" class="form-label">Jour de fin</label>
+        <input type="text" class="form-control" id="endDay" disabled>
+    </div>
+
+    <div class="mb-3">
+        <label for="endHour" class="form-label">Heure de fin</label>
+        <input type="text" class="form-control" id="endHour" disabled>
+    </div>
+
+    <div class="mb-3">
+        <label for="totalPrice" class="form-label">Prix</label>
+        <input type="text" class="form-control" id="totalPrice" disabled>
+    </div>
+
+    <button id="editedFormSubmit" class="btn btn-primary">Soumettre</button>
+</form>

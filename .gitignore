@@ -1,0 +1,6 @@
+vendor/
+.env
+.idea/
+./idea
+.idea/workspace.xml
+.idea/pph.xml

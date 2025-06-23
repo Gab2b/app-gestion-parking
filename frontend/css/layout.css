@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cyan-primary: #00bcd4;
+    --blue-dark: #1e3a5f;
+    --white: #ffffff;
+    --light-gray: #b3b3b3;
+    --medium-gray: #e9ecef;
+    --dark-gray: #495057;
+    --text-primary: #2c3e50;
+    --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --border-radius: 8px;
+    --transition: all 0.2s ease-in-out;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--light-gray);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.container > div {
+    background: var(--white);
+    margin: 20px 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+}
+
+.container > div:first-child {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--cyan-primary) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 60px 40px;
+    margin-top: 0;
+}
+
+.container > div:first-child h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -0.02em;
+}
+
+.container > div:first-child p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.container > div:first-child a {
+    display: inline-block;
+    background: var(--white);
+    color: var(--blue-dark);
+    padding: 15px 30px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow-medium);
+}
+
+.container > div:first-child a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.container > div:not(:first-child) {
+    padding: 40px;
+}
+
+h1 {
+    color: var(--blue-dark);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+    border-bottom: 3px solid var(--cyan-primary);
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: var(--blue-dark);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+h4 {
+    color: var(--cyan-primary);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+p {
+    margin-bottom: 20px;
+    color: var(--dark-gray);
+    font-size: 1rem;
+}
+
+.container > div > div > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.container > div > div > div > div {
+    background: var(--light-gray);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--cyan-primary);
+    transition: var(--transition);
+}
+
+.container > div > div > div > div:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.container > div:nth-child(3) > div > div:last-child {
+    grid-column: 1 / -1;
+    background: linear-gradient(90deg, var(--cyan-primary), var(--blue-dark));
+    color: var(--white);
+    text-align: center;
+    padding: 30px;
+    border-left: none;
+    border-radius: var(--border-radius);
+}
+
+.container > div:nth-child(3) > div > div:last-child h3 {
+    color: var(--blue-dark);
+    margin-bottom: 15px;
+}
+
+.container > div:nth-child(3) > div > div:last-child p {
+    color: var(--blue-dark);
+    font-size: 1.1rem;
+}
+
+details {
+    margin-bottom: 15px;
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+summary {
+    background: var(--light-gray);
+    padding: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--blue-dark);
+    transition: var(--transition);
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+summary:hover {
+    background: var(--cyan-primary);
+    color: var(--white);
+}
+
+details[open] summary {
+    background: var(--blue-dark);
+    color: var(--white);
+}
+
+details p {
+    padding: 20px;
+    margin: 0;
+    color: var(--dark-gray);
+    background: var(--white);
+}
+
+.container > div:last-child {
+    background: var(--blue-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 40px;
+}
+
+.container > div:last-child h1 {
+    color: var(--white);
+    border-bottom-color: var(--cyan-primary);
+}
+
+.container > div:last-child h4 {
+    color: var(--cyan-primary);
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .container > div:first-child {
+        padding: 40px 20px;
+    }
+
+    .container > div:first-child h1 {
+        font-size: 2.2rem;
+    }
+
+    .container > div:not(:first-child) {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .container > div > div > div {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .container > div > div > div > div {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container > div:first-child {
+        padding: 30px 15px;
+    }
+
+    .container > div:first-child h1 {
+        font-size: 1.8rem;
+    }
+
+    .container > div:first-child p {
+        font-size: 1rem;
+    }
+
+    .container > div:not(:first-child) {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .container > div > div > div > div {
+        padding: 15px;
+    }
+}
