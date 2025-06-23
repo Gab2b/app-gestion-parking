@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="frontend/css/login.css"
->
+<link rel="stylesheet" href="frontend/css/login.css">
 <br>
 <form method="post" id="login-form">
     <div class="mb-3">
@@ -35,31 +34,32 @@
 
             if (loginResult.hasOwnProperty('authentication')) {
                 document.location.href = 'index.php';
-            } else if (loginResult.hasOwnProperty('errors')) {
-                const errorsElement = document.querySelector('#errors');
-                errorsElement.innerHTML = '';
-                loginResult.errors.forEach(error => {
-                    const errorDiv = document.createElement('div');
-                    errorDiv.classList.add('alert', 'alert-danger');
-                    errorDiv.setAttribute('role', 'alert');
-                    errorDiv.textContent = error;
-                    errorDiv.style.opacity = 1;
-                    errorDiv.style.transition = 'opacity 1s';
-                    errorsElement.appendChild(errorDiv);
-
-                    setTimeout(() => {
-                        errorDiv.style.opacity = 0;
-                    }, 1000,);
-
-                    setTimeout(() => {
-                        errorsElement.innerHTML = '';
-                    }, 5000);
-                });
-
-
-                console.log(loginResult.errors);
-
             }
+            // else if (loginResult.hasOwnProperty('errors')) {
+            //     const errorsElement = document.querySelector('#errors');
+            //     errorsElement.innerHTML = '';
+            //     loginResult.errors.forEach(error => {
+            //         const errorDiv = document.createElement('div');
+            //         errorDiv.classList.add('alert', 'alert-danger');
+            //         errorDiv.setAttribute('role', 'alert');
+            //         errorDiv.textContent = error;
+            //         errorDiv.style.opacity = 1;
+            //         errorDiv.style.transition = 'opacity 1s';
+            //         errorsElement.appendChild(errorDiv);
+            //
+            //         setTimeout(() => {
+            //             errorDiv.style.opacity = 0;
+            //         }, 1000,);
+            //
+            //         setTimeout(() => {
+            //             errorsElement.innerHTML = '';
+            //         }, 5000);
+            //     });
+
+            //
+            //     console.log(loginResult.errors);
+            //
+            // }
         });
     });
 </script>

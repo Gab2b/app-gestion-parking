@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="frontend/css/checkout.css">
 
-<div class="container">
     <br>
     <h1>Réservations non payées : </h1>
     <br>
@@ -68,7 +67,6 @@
     <br>
 
     <?php require "backend/_partials/hiddenForm.html" ?>
-</div>
 
 <script src="frontend/assets/bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js"></script>
 <script src="frontend/assets/sweetalert2-11.22.0/dist/sweetalert2.all.min.js"></script>

@@ -12,3 +12,13 @@ export const updateProfile = async (formData) => {
     });
     return response.json();
 };
+
+export async function saveRates(rates) {
+    const response = await fetch('?action=saveRates', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(rates)
+    });
+
+    return response.json();
+}

@@ -1,93 +1,100 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Variables pour cohérence avec le design principal */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --primary-light: #3b82f6;
+    --accent: #06b6d4;
+
+    --white: #ffffff;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+
+    --error: #ef4444;
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --radius: 8px;
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #1e3a5f 0%, #00bcd4 100%);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    color: #333;
-}
-
-.login-container {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 40px;
-    max-width: 400px;
-    width: 100%;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
+/* Amélioration du formulaire */
 #login-form {
-    margin-bottom: 30px;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--gray-200);
+    max-width: 400px;
+    margin: 2rem auto;
 }
 
+/* Style des groupes de champs */
 .mb-3 {
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
 }
 
+/* Labels améliorés */
 .form-label {
     display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: #1e3a5f;
-    font-size: 14px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
+/* Champs de saisie stylisés */
 .form-control {
     width: 100%;
-    padding: 12px 16px;
-    border: 2px solid #e1e5e9;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    background: #fff;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    color: var(--gray-700);
+    background: var(--white);
+    transition: all 0.2s ease;
+    outline: none;
+    font-family: inherit;
 }
 
 .form-control:focus {
-    outline: none;
-    border-color: #00bcd4;
-    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.1);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-.form-control:invalid {
-    border-color: #dc3545;
+.form-control:invalid:not(:placeholder-shown) {
+    border-color: var(--error);
 }
 
-.form-control:valid {
-    border-color: #00bcd4;
-}
-
+/* Bouton stylisé */
 .btn {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 0.875rem 1.5rem;
     border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    text-align: center;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
     text-decoration: none;
     cursor: pointer;
     transition: all 0.2s ease;
+    outline: none;
+    font-family: inherit;
     width: 100%;
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #00bcd4, #1e3a5f);
-    color: white;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    color: var(--white);
+    box-shadow: var(--shadow);
 }
 
 .btn-primary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-primary:active {
@@ -96,90 +103,69 @@ body {
 
 .btn-primary:disabled {
     opacity: 0.6;
-    cursor: not-allowed;
+    pointer-events: none;
     transform: none;
 }
 
-p {
-    margin-bottom: 10px;
-    color: #666;
+/* Texte sous le formulaire */
+#login-form + br + br + p {
     text-align: center;
-    font-size: 14px;
+    color: var(--gray-600);
+    margin: 1.5rem auto 0.5rem;
+    max-width: 400px;
+    font-size: 0.875rem;
 }
 
-a {
-    color: #00bcd4;
-    text-decoration: none;
-    font-weight: 500;
+/* Lien de création de compte */
+#login-form + br + br + p + a {
     display: block;
     text-align: center;
-    padding: 8px;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 auto;
+    max-width: 400px;
+    transition: color 0.2s ease;
 }
 
-a:hover {
-    background-color: rgba(0, 188, 212, 0.1);
+#login-form + br + br + p + a:hover {
+    color: var(--primary-dark);
     text-decoration: underline;
 }
 
+/* Container d'erreurs (si ajouté plus tard) */
 #errors {
-    margin-bottom: 20px;
+    max-width: 400px;
+    margin: 0 auto 1rem;
 }
 
 .alert {
-    padding: 12px 16px;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    font-size: 14px;
+    padding: 0.875rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
 }
 
 .alert-danger {
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    color: #721c24;
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--error);
+    border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
+/* Responsive */
 @media (max-width: 480px) {
-    .login-container {
-        padding: 30px 20px;
-        margin: 10px;
+    #login-form {
+        margin: 1rem;
+        padding: 1.5rem;
+        max-width: none;
     }
 
-    .form-control {
+    #login-form + br + br + p,
+    #login-form + br + br + p + a {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        max-width: none;
     }
-}
-
-@media (max-width: 360px) {
-    .login-container {
-        padding: 20px 15px;
-    }
-}
-
-.btn-primary.loading {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
-
-.btn-primary.loading::after {
-    content: '';
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border: 2px solid transparent;
-    border-top: 2px solid currentColor;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-left: 8px;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-.btn:focus-visible,
-.form-control:focus-visible,
-a:focus-visible {
-    outline: 2px solid #00bcd4;
-    outline-offset: 2px;
 }

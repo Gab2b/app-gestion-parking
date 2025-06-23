@@ -176,3 +176,7 @@ h3 {
 .container > div > div:hover::before {
     opacity: 1;
 }
+
+.container > div > .cart {
+    grid-column: 2 / 3;
+}

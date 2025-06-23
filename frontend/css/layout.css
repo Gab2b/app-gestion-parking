@@ -8,7 +8,7 @@
     --cyan-primary: #00bcd4;
     --blue-dark: #1e3a5f;
     --white: #ffffff;
-    --light-gray: #f8f9fa;
+    --light-gray: #b3b3b3;
     --medium-gray: #e9ecef;
     --dark-gray: #495057;
     --text-primary: #2c3e50;
@@ -142,12 +142,12 @@ p {
 }
 
 .container > div:nth-child(3) > div > div:last-child h3 {
-    color: var(--white);
+    color: var(--blue-dark);
     margin-bottom: 15px;
 }
 
 .container > div:nth-child(3) > div > div:last-child p {
-    color: var(--white);
+    color: var(--blue-dark);
     font-size: 1.1rem;
 }
 

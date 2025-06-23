@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="frontend/css/old_bookings.css"
 
-<div class="container">
     <br>
     <h1>Réservations passées : </h1>
     <br>
@@ -35,4 +34,3 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-</div>

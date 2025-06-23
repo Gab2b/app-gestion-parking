@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="frontend/css/booked_spots.css">
 
 
-<div class="container">
     <br>
     <h1>Réservations payées : </h1>
     <br>
@@ -46,4 +45,3 @@
 
     <h4>Vous ne trouvez pas ce que vous cherchez ?</h4>
     <h5><a href="checkout">Voir les réservations non payées</a></h5>
-</div>

@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="frontend/css/admin_dashboard.css">
 
-<div class="container">
     <h1>Dashboard Administrateur</h1>
 
     <div>
@@ -28,4 +27,3 @@
         <div><a href="spots_management">Gestion des places</a></div>
 
     </div>
-</div>

@@ -3,9 +3,9 @@
 <h1>Créer un compte</h1><br>
 
 <?php if (!empty($error)): ?>
-    <p style="color: red;"><?php echo $error; ?></p>
+    <div class="alert alert-danger"><?php echo $error; ?></div>
 <?php elseif (!empty($success)): ?>
-    <p style="color: green;"><?php echo $success; ?></p>
+    <div class="alert alert-success"><?php echo $success; ?></div>
 <?php endif; ?>
 
 <form method="post">

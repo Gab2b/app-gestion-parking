@@ -1,16 +1,12 @@
 <link rel="stylesheet" href="frontend/css/layout.css">
 
-<div class="container">
     <div>
-        <h1>Bienvenue au Parking Maurras</h1>
-        <p>Site officiel de réservation du Parking Maurras</p>
-        <div>
-            <a href="index.php?component=checkout">Réservez dès maintenant</a>
-        </div>
+        <h1>Bienvenue au Parking Magnaud</h1>
+        <p>Site officiel de réservation du Parking Magnaud</p>
     </div>
 
     <div>
-        <div>
+        <div class="d-flex flex-column">
             <h1>Présentation du Parking</h1>
             <div>
                 <div>
@@ -26,7 +22,7 @@
     </div>
 
     <div>
-        <div>
+        <div class="d-flex flex-column">
             <h1>Réservation et tarifs</h1>
             <div>
                 <div>
@@ -65,6 +61,3 @@
         <h4>+33 33 33 33 33</h4>
         <h4>Support 24h/24 7j/7</h4>
     </div>
-
-
-</div>

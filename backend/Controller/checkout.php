@@ -17,13 +17,13 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
     if (isset($_POST) && isset($_GET)) {
         switch ($_GET['action']) {
             case 'payOne':
-                var_dump('payOne');
-//                payThisReservation($pdo, $_POST['reservationId']);
+//                var_dump('payOne');
+                payThisReservation($pdo, $_POST['reservationId']);
                 break;
 
             case 'payAll':
                 var_dump('payALL');
-//                payAllReservations($pdo, $_SESSION['user_id']);
+                payAllReservations($pdo, $_SESSION['user_id']);
                 break;
 
             case 'getAvailableSpots':
